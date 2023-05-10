@@ -1,2 +1,28 @@
 body {
   background-color: #d814f1ab; }
+
+.menu {
+  height: 10%;
+  width: 100%;
+  background-color: #eece1a; }
+
+.nav-item {
+  display: inline-block;
+  vertical-align: top; }
+  .nav-item a {
+    color: #000; }
+
+.menu-nav-sub {
+  display: none;
+  background-color: #c6ab0f;
+  width: 100%; }
+
+.menu-nav li:hover .menu-nav-sub {
+  display: block; }
+
+#main-footer {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(177, 12, 198, 0.670588);
+  color: set-text-color(#d814f1ab);
+  height: 60px; }
