@@ -1,60 +1,214 @@
-$primary-color: #d814f1ab;
-$secondary-color: #eece1a;
+$primary-color: #2314f1ab;
+$secondary-color: #E2F114;
 $show-home-image: true;
-$home-image: url(../img/background.jpg);
+$home-image: url(/dist/Img/background.jpg);
 $background-opacity: 0.9;
+
+@import 'menu';
+@import 'config';
+
+@mixin easeout {
+    transition: all 0.5s ease-out;
+}
+@keyframes menuanimation1 {
+    50% {
+        transform: translate(0px,12px);
+    }
+    100% {
+        transform: rotate(45deg) translate(6px,4px);
+    }
+}
+@keyframes menuanimation2 {
+    50% {
+        transform: translate(0px,-4px);
+    }
+    100% {
+        transform: rotate(-45deg) translate(6px,-6px);
+    }
+}
+.indexpage {
+    display: flex;
+}
+
+
 
 body {
     background-color: $primary-color;
-}
-.menu {
-    height: 10%;
-    width: 100%;
-    background-color: #eece1a;
-    }
-    .nav-item {
-    display: inline-block;
-    vertical-align: top;
-        a {
-            color: #000;
-        }
-    } 
-    .menu-nav-sub {
-    display:none;
-    background-color: darken($color: #eece1a, $amount: 10);
-    width: 100%;
-    }
-    .menu-nav li:hover .menu-nav-sub {
-    display: block;
-    }
-    #main-footer {
-    text-align: center;
-    padding: 1rem;
-    background: darken($primary-color, 10);
-    color: set-text-color($primary-color);
-    height: 60px;
-    }
-    .menu-nav li:nth-child(1):hover ~ .dot {
-        -webkit-transform: translateX(30px);
-        transform: translateX(30px);
-        -webkit-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
-        opacity: 1; 
-      }
-
-
-      .menu-nav .dot {
-        width: 6px;
-        height: 6px;
-        background: #fddb3a;
-        border-radius: 50%;
-        opacity: 0;
-        -webkit-transform: translateX(30px);
-        transform: translateX(30px);
-        -webkit-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
-      }
+    margin: 0;
+    padding: 0;
     
-      .menu-nav a:hover {
-        color: #fddb3a;
+}
+main{
+    height: calc(100vh - 70px);
+    .lg-heading{
+        padding-top: 15px;
+        text-indent: 30px;
+    }
+    .contactbttn{
+        min-height: 100vh;
+    }
+}
+#mainpage {
+    background: $home-image;
+    background-attachment: fixed;
+    background-size: cover;
+        &:after {
+        content: '';
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: rgba($primary-color, 0.9);
+}}
+//Contact
+.contactdiv{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30vh;
+}
+.contactbttn{
+    
+    padding: 30px;
+    border: 5px #792626 double;
+    border-radius: 10%;
+    text-decoration: none;
+    text-align: center;
+    background-color: darken($primary-color, 10);
+    @include easeout();
+        &:hover{
+            padding: 45px;
+            border-color: #E2F114;
+        }
+}
+// Index
+.second-text {
+    color: #792626;
+}
+.portrait {
+    margin-left: 200px;
+    border: 5px #792626 double;
+    border-radius: 10%;
+
+}
+//Manga page
+      .manga {
+        display: grid;
+        grid-template-columns: repeat(3, 0.5fr);
+        margin: auto;
+        margin-left: 10rem;
+        
+        .item{
+            &:nth-child(1){
+                background-image: url(../img/devilman.jpg);
+            }
+            &:nth-child(2){
+                background-image: url(../img/medalist.jpg);
+            }
+            &:nth-child(3){
+                background-image: url(../img/Worldtrigger.jpg);
+            }
+            &:nth-child(4){
+                background-image: url(../img/goldengod.jpg);
+            }
+            &:nth-child(5){
+                background-image: url(../img/levius.jpg);
+            }
+            &:nth-child(6){
+                background-image: url(../img/oshinoko.jpg);
+            }
+            background-size: cover;
+            height: 21rem;
+            width: 15rem;
+            margin-bottom: 3rem;
+            box-sizing: border-box;
+            @include easeout;
+            &:hover {
+                @include easeout;
+                a {
+                    position: relative;
+                    background: rgba(0, 0, 0, 0.5);
+                    display: flex;
+                    height: 19rem;
+                    opacity: 1;
+                    margin-bottom: -1rem;
+                    @include easeout;
+                }
+                p{
+                    margin-top: 1rem;
+                    font-weight: bold;
+                    background-color: #07a6c2;
+                }
+            }
+            }
+        a {
+            position: absolute;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            opacity: 0;
+            height: 1rem; 
+            margin-bottom: 2rem;
+        }
+        p {
+        margin-top: 19rem;
+        background-color: #792626;
+        height: 2rem;
+        text-align: center;
+        
+        }
       }
+//Anime page
+.animebox{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5rem;
+    margin-top: 1rem;
+    div{
+        top: 0;
+        max-width: 30rem;
+        background-color: #b010e0;
+        border: 3px darken($color: #b010e0, $amount: 10) solid;
+        border-radius: 3%;
+        margin-bottom: 1rem;
+    }
+    a{
+        text-decoration: none;  
+    }
+    .image{
+        padding: 5px;
+        font-weight: bold;
+        text-align: center;
+        @include easeout;
+        img{
+            border-radius: 3%;
+            border: 2px darken($color: #b010e0, $amount: 10) solid;
+
+        }
+        &:hover{
+            border-color: #E2F114;
+            padding: 15px;
+            font-size: large;
+        }
+    }
+    .text{
+        padding: 7px;
+    }
+}
+
+
+      #main-footer {
+        text-align: center;
+        padding: 10px;
+        bottom: 0%;
+        background: darken($primary-color, 10);
+        color: set-text-color($primary-color);
+        height: 60px;
+        }
+@import 'screen';

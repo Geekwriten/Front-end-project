@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "Website front end",
   "main": "index.js",
+  "homepage": "https://Geekwriten.github.io/Front-end-project",
   "scripts": {
-    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive",
+    "deploy": "gh-pages -d dist"
   },
   "author": "Noa ROUGIER",
   "license": "ISC",
   "dependencies": {
-    "node-sass": "^8.0.0"
+    "gh-pages": "^5.0.0",
+    "node-sass": "^8.0.0",
+    "nodejs": "^0.0.0"
   }
 }
